@@ -43,5 +43,29 @@ namespace Packt.Shared
         {
             return Person.Procreate(p1, p2);
         }
+
+        //method with a local function
+        // local functions are the method equivalent of local variables and are only accessible within the method
+        // where they have been defined
+        public static int Factorial(int number)
+        {
+            if (number < 0)
+            {
+                throw new ArgumentException(
+                    $"{nameof(number)} cannot be less than 0.");
+            }
+            return localFactorial(number);
+
+            int localFactorial(int localNumber) // local function
+            {
+                if (localNumber < 1) return 1;
+                return localNumber * localFactorial(localNumber - 1);
+            }
+        }
+
+        public int MethodIWantToCall(string input)
+        {
+            return input.Length; // doesn't matter what this does
+        }
     }
 }
