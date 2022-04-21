@@ -31,11 +31,16 @@ namespace PeopleApp
             WriteLine($"5! is {Person.Factorial(5)}");
             WriteLine();
             WriteLine("Delegates");
-            int answer = p1.MethodIWantToCall("Frog");
+            //int answer = p1.MethodIWantToCall("Frog");
+            harry.Shout = Harry_Shout;
+            harry.Poke();
+            harry.Poke();
+            harry.Poke();
+            harry.Poke();
             
             //Unsure why the below is in the book as instructions and code placement unclear
             /*
-            delegate int DelegateWithMatchingStringSignature(string s);
+            public delegate int DelegateWithMatchingStringSignature(string s);
 
             // create a delegate instance that points to the method
             var d = new DelegateWithMatchingStringSignature(p1.MethodIWantToCall);
@@ -43,6 +48,14 @@ namespace PeopleApp
             // call the delegate, which calls the method
             int answer2 = d("Frog");
             */
+        }
+
+        // Method names that handle events should be  structured: ObjectName_EventName e.g. Harry_Shout
+        private static void Harry_Shout(object sender, EventArgs e)
+        {
+           Person p = (Person)sender;
+           WriteLine($"{p.Name} is this angry: {p.AngerLevel}.");
+           
         }
     }
 }

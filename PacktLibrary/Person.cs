@@ -67,5 +67,23 @@ namespace Packt.Shared
         {
             return input.Length; // doesn't matter what this does
         }
+
+        // event delegate fields
+        public EventHandler Shout;
+
+        //data field
+        public int AngerLevel;
+
+        //method
+        public void Poke()
+        {
+            AngerLevel++;
+            if (AngerLevel >= 3)
+            {
+                //if something is listening
+                //? checks for null inline
+                Shout?.Invoke(this, EventArgs.Empty);
+            }
+        }           
     }
 }
