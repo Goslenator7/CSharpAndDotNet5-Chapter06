@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
+    "\\PacktLibrary",
     "\\PeopleApp"
   ],
-  "SelectedNode": "\\PeopleApp\\Program.cs",
+  "SelectedNode": "\\PacktLibrary\\Person.cs",
   "PreviewInSolutionExplorer": false
 }

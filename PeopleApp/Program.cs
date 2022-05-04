@@ -48,6 +48,31 @@ namespace PeopleApp
             // call the delegate, which calls the method
             int answer2 = d("Frog");
             */
+
+            //Comparing objects when sorting
+            WriteLine();
+            WriteLine();
+            WriteLine("Comparing objects");
+            Person[] people =
+            {
+                new Person { Name = "Simon" },
+                new Person { Name = "Jenny" },
+                new Person { Name = "Adam" },
+                new Person { Name = "Richard" }
+            };
+
+            WriteLine("Initial list of people:");
+            foreach (var person in people)
+            {
+                WriteLine($" {person.Name}");
+            }
+
+            WriteLine("Use Person's ICompareable implementation to sort:");
+            Array.Sort(people);
+            foreach (var person in people)
+            {
+                WriteLine($" {person.Name}");
+            }
         }
 
         // Method names that handle events should be  structured: ObjectName_EventName e.g. Harry_Shout
