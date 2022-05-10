@@ -111,6 +111,23 @@ namespace PeopleApp
             var dv3 = dv1 + dv2;
 
             WriteLine($"({dv1.X}, {dv1.Y}) + ({dv2.X}, {dv2.Y}) = ({dv3.X}, {dv3.Y})");
+
+        // Inheritance
+        WriteLine();
+        WriteLine("Inheritance");
+        Employee john = new Employee
+        {
+            Name = "John Jones",
+            DateOfBirth = new DateTime(1990, 7, 28)
+        };
+        john.EmployeeCode = "JJ001";
+        john.HireDate = new DateTime(2014, 11, 23);
+        john.WriteToConsole();
+        WriteLine($"{john.Name} was hired on {john.HireDate:dd/MM//yy}");
+        WriteLine();
+        //Returned the namespace and typename, not the object as a string like we expect
+        //But now we have an override in the Person class for this method
+        WriteLine(john.ToString());
         }
 
         // Method names that handle events should be  structured: ObjectName_EventName e.g. Harry_Shout
@@ -119,6 +136,8 @@ namespace PeopleApp
            Person p = (Person)sender;
            WriteLine($"{p.Name} is this angry: {p.AngerLevel}.");
            
+
         }
+
     }
 }

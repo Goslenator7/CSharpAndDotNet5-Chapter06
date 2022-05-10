@@ -17,6 +17,13 @@ namespace Packt.Shared
             WriteLine($"{Name} was born on a {DateOfBirth:dddd}.");
         }
 
+        // override ToString method
+        public override string ToString()
+        {
+            //base allows us to access members of its superclass
+            return $"{this.Name} is a {base.ToString()}";
+        }
+
         // static method to "multiply"
         public static Person Procreate(Person p1, Person p2)
         {
