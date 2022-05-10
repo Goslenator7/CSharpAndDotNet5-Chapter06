@@ -127,8 +127,63 @@ namespace PeopleApp
         WriteLine();
         //Returned the namespace and typename, not the object as a string like we expect
         //But now we have an override in the Person class for this method
+        WriteLine();
+        WriteLine("Polymorphism");
+        WriteLine();
         WriteLine(john.ToString());
+
+        Employee aliceInEmployee = new Employee
+        {
+            Name = "Alice",
+            EmployeeCode = "AA123"
+        };
+
+        Person aliceInPerson = aliceInEmployee;
+        aliceInEmployee.WriteToConsole();
+        aliceInPerson.WriteToConsole();
+        //ToString method with 2 different overrides - 1 in Person class, 1 in Employee class
+        WriteLine(aliceInEmployee.ToString());
+        WriteLine(aliceInPerson.ToString());
+        WriteLine();
+        WriteLine("Explicit Casting");
+        WriteLine();
+        //Unsafe
+        //Employee explicitAlice = (Employee)aliceInPerson;
+
+        //Safer
+        if (aliceInPerson is Employee)
+        {
+                WriteLine($"{nameof(aliceInPerson)} IS an Employee");
+                Employee explicitAlice = (Employee)aliceInPerson;
         }
+
+
+        //Alternative
+        // returns null if the type Alice cannot be cast to Employee
+        Employee aliceAsEmployee = aliceInPerson as Employee;
+
+        if (aliceAsEmployee != null)
+            {
+                WriteLine($"{nameof(aliceInPerson)} AS an Employee");
+            }
+
+        try
+            {
+                john.TimeTravel(new DateTime(1999, 12, 31));
+                john.TimeTravel(new DateTime(1959, 12, 31));
+            }
+            catch (PersonException ex)
+            {
+                WriteLine(ex.Message);
+            }
+
+        string email1 = "pamela@test.com";
+        string email2 = "ian&test.com";
+
+        WriteLine($"{email1} is a valid email address: {email1.IsValidEmail()}");
+        WriteLine($"{email2} is a valid email address: {email2.IsValidEmail()}");
+        }
+
 
         // Method names that handle events should be  structured: ObjectName_EventName e.g. Harry_Shout
         private static void Harry_Shout(object sender, EventArgs e)

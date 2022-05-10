@@ -13,5 +13,10 @@ namespace Packt.Shared
         {
             Console.WriteLine($"{this.Name} was born on {this.DateOfBirth:dd/MM/yy} and was hired on {this.HireDate:dd/MM/yy}");
         }
+
+        public override string ToString()
+        {
+            return $"{Name}'s code is {EmployeeCode}";
+        }
     }
 }

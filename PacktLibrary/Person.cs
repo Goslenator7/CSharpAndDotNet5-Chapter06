@@ -24,6 +24,18 @@ namespace Packt.Shared
             return $"{this.Name} is a {base.ToString()}";
         }
 
+        public void TimeTravel(DateTime when)
+        {
+            if(when <= DateOfBirth)
+            {
+                throw new PersonException("Time travel is not allowed before your date of birth");
+            }
+            else
+            {
+                WriteLine($"Welcome to {when:yyyy}!");
+            }
+        }
+
         // static method to "multiply"
         public static Person Procreate(Person p1, Person p2)
         {
